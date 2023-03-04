@@ -14,6 +14,3 @@ RUN bash /tmp/nodesource_setup.sh
 RUN apt install nodejs
 RUN node -v
 
-# Install App
-RUN git clone https://github.com/aniket-8158/Tech-Ver-App.git
-
