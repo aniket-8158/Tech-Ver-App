@@ -1,16 +1,17 @@
-FROM ubuntu:22.04
+FROM node:14.17.0
 
-ENV DEBIAN_FRONTEND=noninteractive
+# Create app directory
+WORKDIR /usr/src/app
 
-# Install necessary packages
-RUN apt update --yes
-RUN apt install --yes curl unzip tar 
-RUN apt-get --quiet install --yes software-properties-common
-RUN apt-get install git --yes
+# Cpoy Files
+COPY  . /usr/src/app/
 
-# Node Install
-RUN curl -sL https://deb.nodesource.com/setup_14.x -o /tmp/nodesource_setup.sh
-RUN bash /tmp/nodesource_setup.sh
-RUN apt install nodejs
-RUN node -v
+# Install NPM
+RUN npm install
+
+# Expose Port
+EXPOSE 3000
+
+# Start NPM
+CMD ["npm", "start"] 
 
