@@ -7,3 +7,5 @@ COPY . /app/
 RUN go get ./...
 
 EXPOSE 8080
+
+ENTRYPOINT ["go", "run", "main.go"] 
